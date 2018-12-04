@@ -8,13 +8,14 @@ export default class UserList extends Component {
   }
 
   toggleGamesPlayedPanel = () => {
-    this.setState(currentState => ({ showGamesPlayed: !currentState.showGamesPlayed }));
+    this.setState(currentState => ({
+      showGamesPlayed: !currentState.showGamesPlayed
+    }));
   }
 
   render() {
     const { showGamesPlayed } = this.state;
-    const users = this.props;
-    console.log(users);
+    const { users } = this.props;
 
     const gamesPlayedButton = (
       <div>
