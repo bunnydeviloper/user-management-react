@@ -24,8 +24,25 @@ export default class AddUser extends Component {
     }));
   }
 
-  handleSubmit = () => {
-    // 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    // when someone submit the form, check if username is already exists or not
+    const userExist = this.checkUserExist(this.state.user.username);
+
+    // if the user is not exist yet, we pass the user's info to the parent's component and update its state
+    if (!userExist) this.props.onAddUser(this.state.user);
+
+    // we also update the current component's state
+    this.setState(() => ({ userExist }));
+  }
+
+  checkUserExist = (inputUsername) => {
+    const users = this.props.users;
+    for (let user of users) {
+      if (user.name === inputUsername) return true;
+      // if (user.username === inputUsername) return true;
+    }
+    return false;
   }
 
   render() {
