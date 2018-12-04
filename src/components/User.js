@@ -1,11 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class User extends Component {
-  render() {
-    return (
-      <div>
-        <h3> Hello from User component </h3>
-      </div>
-    );
-  }
-}
+// since this component doesn't needs to manage state
+// we can just use stateless functional component
+const User = (props) => {
+  return (
+    <li>
+      <p>Username: {props.user.username}</p>
+      {/* <p>Total number of games played: {props.showGamesPlayed}</p> */}
+      <p>Total number of games played: {" "}
+        {props.showGamesPlayed ? props.user.numGamesPlayed : "*"}
+      </p>
+    </li>
+  );
+};
+
+export default User;
