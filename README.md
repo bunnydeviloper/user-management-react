@@ -2,6 +2,9 @@
 
 #### [Demo](https://user-management-react.netlify.com)
 
+#### Screenshot
+<img alt='screenshot' src='./assets/screenshot.png' width="300px" />
+
 ### Usage
 * `npm install`
 * `npm start`
