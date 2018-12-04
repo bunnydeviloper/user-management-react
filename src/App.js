@@ -25,7 +25,7 @@ class App extends Component {
         <header className="App-header">
           <h1>React State Management Practice</h1>
         </header>
-        <AddUser users={this.state.users} onAddUser={this.state.createUser} />
+        <AddUser users={this.state.users} onAddUser={this.createUser} />
         <UserList users={this.state.users} />
       </div>
     );

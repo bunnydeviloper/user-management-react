@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class AddUser extends Component {
   state = {
@@ -39,8 +40,7 @@ export default class AddUser extends Component {
   checkUserExist = (inputUsername) => {
     const users = this.props.users;
     for (let user of users) {
-      if (user.name === inputUsername) return true;
-      // if (user.username === inputUsername) return true;
+      if (user.username === inputUsername) return true;
     }
     return false;
   }
@@ -78,12 +78,15 @@ export default class AddUser extends Component {
               onChange={this.handleInputChange}
             />
           </div>
-        </form>
-        <button disabled={this.isDisabled()}>
-          Add
-        </button>
-        <p>{this.state.userExist ? "You cannot add an existing users!" : ""}</p>
-      </div>
+        <button disabled={this.isDisabled()}>Add</button>
+      </form>
+      {this.state.userExist ? (<p>You cannot add an existing users!</p>) : ("") }
+    </div>
     );
   }
+}
+
+AddUser.propTypes = {
+  onAddUser: PropTypes.func.isRequired,
+  users: PropTypes.array.isRequired
 }
