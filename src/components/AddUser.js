@@ -45,6 +45,12 @@ export default class AddUser extends Component {
     return false;
   }
 
+  // if any of the fields (firstName, lastName, username) is blank, we will disable the 'Add' button
+  isDisabled = () => {
+    const { firstName, lastName, username } = this.state.user;
+    return firstName === "" || lastName === "" || username === "";
+  }
+
   render() {
     const { firstName, lastName, username } = this.state.user;
 
@@ -73,6 +79,10 @@ export default class AddUser extends Component {
             />
           </div>
         </form>
+        <button disabled={this.isDisabled()}>
+          Add
+        </button>
+        <p>{this.state.userExist ? "You cannot add an existing users!" : ""}</p>
       </div>
     );
   }
