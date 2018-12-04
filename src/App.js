@@ -22,6 +22,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <header className="App-header">
+          <h1>React State Management Practice</h1>
+        </header>
         <AddUser users={this.state.users} onAddUser={this.state.createUser} />
         <UserList users={this.state.users} />
       </div>
