@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import User from './User';
 
 export default class UserList extends Component {
   state = {
-    showGamesPlayed: false // initialize condition for showing # of games played
+    showGamesPlayed: true // initialize condition for showing # of games played
   }
 
   toggleGamesPlayedPanel = () => {
-    this.setState({ showGamesPlayed: true });
+    this.setState(currentState => ({ showGamesPlayed: !currentState.showGamesPlayed }));
   }
 
   render() {
     const { showGamesPlayed } = this.state;
     const users = this.props;
+    console.log(users);
 
     const gamesPlayedButton = (
       <div>
@@ -30,15 +31,20 @@ export default class UserList extends Component {
         {users && users.length > 0 ? gamesPlayedButton : ""}
 
         <ol>
-          {users.length > 0 ? users.map(user => (
+          { /* {users.length > 0 ? users.map(user => ( */
+            users.map(user => (
             <User key={user.username}
               user={user}
               showGamesPlayed={showGamesPlayed}
             />
-          )) : (<p>Add new user using the above form</p>)}
+          ))}
         </ol>
 
       </div>
     );
   }
 }
+
+UserList.propTypes = {
+  users: PropTypes.array.isRequired
+};
