@@ -19,7 +19,7 @@ export default class UserList extends Component {
 
     const gamesPlayedButton = (
       <div>
-        <button onClick={this.toggleGamesPlayedPanel}>
+        <button className="smallButton" onClick={this.toggleGamesPlayedPanel}>
           {showGamesPlayed ? "Show" : "Hide"}
           the number of games played
         </button>
@@ -28,16 +28,12 @@ export default class UserList extends Component {
 
     return (
       <div>
-        <h1> Hello from UserList component </h1>
+        <h1>List of all current users:</h1>
         {users && users.length > 0 ? gamesPlayedButton : ""}
 
         <ol>
-          { /* {users.length > 0 ? users.map(user => ( */
-            users.map(user => (
-            <User key={user.username}
-              user={user}
-              showGamesPlayed={showGamesPlayed}
-            />
+          {users.map(user => (
+            <User key={user.username} user={user} showGamesPlayed={showGamesPlayed} />
           ))}
         </ol>
 
