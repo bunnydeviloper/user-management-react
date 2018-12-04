@@ -12,7 +12,7 @@ class App extends Component {
 
   createUser = (user) => {
     // initialize the status of new user
-    user.totalGamesPlayed = 0;
+    user.avatarUrl = "https://previews.123rf.com/images/yayayoy/yayayoy1507/yayayoy150700003/42080144-emoticon-pointing-at-himself-with-both-hands-pick-me-.jpg";
     // set the new state of this component
     this.setState((currentState) => ({
       users: [...currentState.users, user]

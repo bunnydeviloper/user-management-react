@@ -7,14 +7,16 @@ const User = (props) => {
   return (
     <li>
       <p>Username: {props.user.username}</p>
-      {/* <p>Total number of games played: {props.showGamesPlayed}</p> */}
-      <p>Total number of games played: {props.showGamesPlayed ? props.user.numGamesPlayed : "*"}</p>
-    </li>
+      {/* <p>Total number of games played: {props.showAvatar}</p> */}
+      {props.showAvatar && props.user.avatarUrl
+          ? (<p>Avatar: <img alt="avatar" src={props.user.avatarUrl} width="30px" /></p>)
+          : ("")}
+        </li>
   );
 };
 
 User.propTypes = {
-  showGamesPlayed: PropTypes.bool.isRequired,
+  showAvatar: PropTypes.bool.isRequired,
   user: PropTypes.object.isRequired
 }
 

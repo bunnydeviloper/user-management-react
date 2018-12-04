@@ -4,24 +4,23 @@ import User from './User';
 
 export default class UserList extends Component {
   state = {
-    showGamesPlayed: true // initialize condition for showing # of games played
+    showAvatar: true // initialize condition for showing # of games played
   }
 
   toggleGamesPlayedPanel = () => {
     this.setState(currentState => ({
-      showGamesPlayed: !currentState.showGamesPlayed
+      showAvatar: !currentState.showAvatar
     }));
   }
 
   render() {
-    const { showGamesPlayed } = this.state;
+    const { showAvatar } = this.state;
     const { users } = this.props;
 
     const gamesPlayedButton = (
       <div>
         <button className="smallButton" onClick={this.toggleGamesPlayedPanel}>
-          {showGamesPlayed ? "Show" : "Hide"}
-          the number of games played
+          {showAvatar ? "Show " : "Hide "} Avatar
         </button>
       </div>
     );
@@ -33,7 +32,7 @@ export default class UserList extends Component {
 
         <ol>
           {users.map(user => (
-            <User key={user.username} user={user} showGamesPlayed={showGamesPlayed} />
+            <User key={user.username} user={user} showAvatar={showAvatar} />
           ))}
         </ol>
 

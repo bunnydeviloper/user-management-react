@@ -80,7 +80,7 @@ export default class AddUser extends Component {
           </div>
         <button disabled={this.isDisabled()}>Add</button>
       </form>
-      {this.state.userExist ? (<p>You cannot add an existing users!</p>) : ("") }
+      {this.state.userExist ? (<p className="error">You cannot add an existing users!</p>) : ("") }
     </div>
     );
   }
